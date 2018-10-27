@@ -1,0 +1,9 @@
+
+    <div>
+        <div *ngIf="afAuth.user | async as user; else showlogin">
+        <div (click)="logout()">log out</div>
+      </div>
+      <ng-template #showlogin>
+        <div [routerLink]="['./']">Log in</div>
+      </ng-template>
+    </div>

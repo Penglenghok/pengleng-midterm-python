@@ -1,14 +1,15 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
-import { initChangeDetectorIfExisting } from '@angular/core/src/render3/instructions';
+import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
+import { AngularFirestore } from '@angular/fire/firestore';
+
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-export class AppComponent  {
+export class HomeComponent implements OnInit {
+
   items: Observable<any[]>;
 
 
@@ -38,4 +39,5 @@ password:AbstractControl;
       this.db.collection('tables').doc(this.db.createId()).set(f);
     }
   }
+
 }

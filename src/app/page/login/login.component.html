@@ -1,0 +1,22 @@
+<div>
+  <div *ngIf="afAuth.user | async as user; else showLogin">
+    <h1>Hello {{ user.displayName }}!</h1>
+    <button (click)="logout()">Logout</button>
+  </div>
+  <ng-template #showLogin>
+    <p>Please login.</p>
+    <button (click)="login()">Login with Google</button>
+  </ng-template>
+</div>
+
+
+<!-- manual login  -->
+
+<div>
+  <h2>Manual login</h2>
+  <form [formGroup]="bix">
+    <input type="email" placeholder="email" formControlName="name"><br>
+    <input type="password" placeholder="password" formControlName="password">
+    <button (click)="submit(bix.value)">Enter</button>
+  </form>
+</div>
